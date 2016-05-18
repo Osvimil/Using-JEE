@@ -22,26 +22,21 @@ public class Conocido implements Serializable {
 
  private static final long serialVersionUID = 1L;
 
- @Id @GeneratedValue(strategy = GenerationType.AUTO)
+ @Id 
+ @GeneratedValue(strategy = GenerationType.AUTO)
 
  private Long id;
 
  private String nombre;
-
- // Se recomienda no usar acentos en los nombres de la base de datos.
-
+ 
  private String telefono;
 
- public Conocido() {
-
- }
+ public Conocido() {}
 
  public Conocido(String nombre, String telefono) {
+    this.nombre = nombre;
 
- this.nombre = nombre;
-
- this.telefono = telefono;
-
+    this.telefono = telefono;
  }
 
  public Long getId() {
@@ -79,13 +74,15 @@ public class Conocido implements Serializable {
 
  }
 
- @Override public int hashCode() {
+ @Override 
+ public int hashCode() {
 
  return Objects.hashCode(getId());
 
  }
 
- @Override public boolean equals(Object object) {
+ @Override 
+ public boolean equals(Object object) {
 
  // Los objetos con el mismo id se consideran iguales.
 
@@ -95,19 +92,17 @@ public class Conocido implements Serializable {
 
  return Objects.equals(getId(), other.getId());
 
- } else {
+ } 
+ else {
 
  return false;
-
+ }
  }
 
- }
+ @Override 
+ public String toString() {
 
- @Override public String toString() {
-
- return "jpa1.Conocido[id=" + id + ", nombre=" + nombre + ", telefono="
-
- + telefono + "]";
+ return "jpa1.Conocido[id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + "]";
 
  }
 
