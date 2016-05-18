@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package jpa1;
 import java.util.List;
 
@@ -11,20 +7,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 import javax.persistence.EntityTransaction;
-/**
- *
- * @author gabino
- */
+
 public class CtrlConocidos {
     private static final EntityManagerFactory emf = EMF.getEntityManagerFactory();
-
- /**
-
- * Lista todos los conocidos registrados.
-
- * @return Una lista con todos los conocidos registrados.
-
- */
 
  public List<Conocido> lista() {
 
@@ -33,23 +18,18 @@ public class CtrlConocidos {
  List<Conocido> lista;
 
  try {
-     lista = em.createQuery("SELECT c FROM Conocido c ORDER BY c.nombre",
-
- Conocido.class).getResultList();
+     lista = em.createQuery("SELECT c FROM Conocido c ORDER BY c.nombre",Conocido.class).getResultList();
 
  } finally {
-
  em.close();
-
  }
 
  return lista;
-
  }
 
  /**
 
- * Busca un objeto en base a su id.
+ * Busca un objeto con base a su id.
 
  * @param id la llave primaria del objeto.
 
@@ -104,9 +84,7 @@ public class CtrlConocidos {
  } finally {
 
  em.close();
-
  }
-
  }
 
  /**
@@ -130,13 +108,9 @@ public class CtrlConocidos {
  final EntityTransaction tx = em.getTransaction();
 
  tx.begin();
-
  modelo = em.merge(modelo);
-
  tx.commit();
-
  return modelo;
-
  } finally {
      em.close();
 
@@ -171,27 +145,19 @@ public class CtrlConocidos {
  /* Si la referencia no es nula, significa que el modelo se encontró la
 
  * referencia no es nula y se elimina. */
-
  em.remove(modelo);
-
  }
-
  tx.commit();
-
  } finally {
 
  em.close();
-
  }
-
  }
 
  private static EntityManager getEntityManager() {
-
- return emf.createEntityManager();
+    return emf.createEntityManager();
 
  }
-
 }
  
      
