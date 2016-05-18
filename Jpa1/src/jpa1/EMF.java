@@ -13,18 +13,12 @@ import javax.persistence.Persistence;
  */
 public class EMF {
 
- private static final EntityManagerFactory entityManagerFactory = Persistence
+ private static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("Jpa1PU");
 
- .createEntityManagerFactory("Jpa1PU");
-
- private EMF() {
-
- }
+ private EMF() {}
 
  public static EntityManagerFactory getEntityManagerFactory() {
 
  return entityManagerFactory;
-
- }
-
+}
 }
